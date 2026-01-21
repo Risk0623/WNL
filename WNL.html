@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        萬年曆
+    </title>
+</head>
+<body style="background-color:rgb(255, 255, 255);">
+    <h1 style="text-align: center; color:rgb(0, 0, 0); font-size: 40px;">
+        <b>萬年曆</b>
+    </h1>
+    <p style="text-align: center; font-family:Verdana; font-size:30px; color:rgb(255, 255, 255); background-color:rgb(0, 0, 0);">
+        萬年曆是一種可以<b>顯示多個年份和月份</b>的日曆工具。
+    </p>
+
+    <div id="clock" style="text-align: center; font-size: 30px; color:rgb(0, 0, 0);"></div>
+
+    <div style="text-align: center;">
+
+        <select id="yearSelect" style="font-size: 20px; margin: 10px; width: 100px;">
+            <option value="">選擇年份</option>
+            <script>
+                for (let year = 1990; year <= 2050; year++) {
+                    document.write('<option value="' + year + '">' + year + '年</option>');
+                }
+            </script>
+        </select>
+        <select id="monthSelect" style="font-size: 20px; margin: 10px; width: 100px;">
+            <option value="">選擇月份</option>
+            <script>
+                for (let month = 1; month <= 12; month++) {
+                    document.write('<option value="' + month + '">' + month + '月</option>');
+                }
+            </script>
+        </select>
+        <button onclick="B1()" style="font-size: 20px; margin: 10px;">生成日曆</button>
+    </div>
+
+    <table id="customCalendar" style="margin: 0 auto; border-collapse: collapse;">
+        <tbody id="customCalendarBody">
+             <tr>
+                <th style="border: 1px solid black; padding: 20px;">日</th>
+                <th style="border: 1px solid black; padding: 20px;">一</th>
+                <th style="border: 1px solid black; padding: 20px;">二</th>
+                <th style="border: 1px solid black; padding: 20px;">三</th>
+                <th style="border: 1px solid black; padding: 20px;">四</th>
+                <th style="border: 1px solid black; padding: 20px;">五</th>
+                <th style="border: 1px solid black; padding: 20px;">六</th>
+             </tr>
+        </tbody>
+    </table>
+
+    <script>//按鈕生成日曆設定
+        function B1() {
+
+            const year = parseInt(document.getElementById('yearSelect').value);
+            const month = parseInt(document.getElementById('monthSelect').value) - 1;
+            if (isNaN(year) || isNaN(month)) {
+                alert('請選擇有效的年份和月份');
+                return;
+            }
+            const days = ['日', '一', '二', '三', '四', '五', '六'];
+            const firstDay = new Date(year, month, 1).getDay();
+            const lastDate = new Date(year, month + 1, 0).getDate();
+            let calendarBody = '';
+            for (let i = 0; i < days.length; i++) {
+                calendarBody += '<th style="border: 1px solid black; padding: 20px;">' + days[i] + '</th>';
+            }
+            calendarBody += '</tr><tr>';
+            for (let i = 0; i < firstDay; i++) {
+                calendarBody += '<td style="border: 1px solid black; padding: 20px;"></td>';
+            }
+            for (let date = 1; date <= lastDate; date++) {
+                if ((firstDay + date - 1) % 7 === 0 && date !== 1) {
+                    calendarBody += '</tr><tr>';
+                }
+                calendarBody += '<td style="border: 1px solid black; padding: 20px;">' + date + '</td>';
+            }
+            document.getElementById('customCalendarBody').innerHTML = calendarBody;
+        }
+    </script>
+
+    <div id="calendar" style="text-align: center; color:rgb(0, 0, 0);"></div>
+    <script>
+        
+        function updateClock() {
+            const now = new Date();
+            const time = now.toLocaleTimeString();
+            document.getElementById('clock').innerText = '當前時間: ' + time;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+    </script>
+</body>
+</html>
+<!--  註解樣式範例
+    <a href="網址">
+        <img src="圖片路徑" alt="替代文字" style="display: block; margin: 0 auto;">
+    </a>
+
+    <img src="圖片路徑" alt="替代文字" style="display: block; margin: 0 auto;">
+
+    <h1 style="text-align: center; color:顏色值; font-size:字體大小px;">
+        標題文字
+    </h1>
+
+    <p style="text-align: center; font-family:字體名稱; font-size:字體大小px; color:顏色值; background-color:背景顏色值;">
+        內文文字
+    </p>
+
+    <mark style="color:rgb(255, 0, 0); font-size: 50px;">標記文字</mark>
+-->
