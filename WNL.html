@@ -4,20 +4,23 @@
     <title>
         萬年曆
     </title>
+    <link rel="stylesheet" href="back.css">
+    <img src="min.jpg" alt="背景圖片" style="display: none;">
 </head>
-<body style="background-color:rgb(255, 255, 255);">
-    <h1 style="text-align: center; color:rgb(0, 0, 0); font-size: 40px;">
+
+<body>
+    <h1>
         <b>萬年曆</b>
     </h1>
-    <p style="text-align: center; font-family:Verdana; font-size:30px; color:rgb(255, 255, 255); background-color:rgb(0, 0, 0);">
+    <p>
         萬年曆是一種可以<b>顯示多個年份和月份</b>的日曆工具。
     </p>
 
-    <div id="clock" style="text-align: center; font-size: 30px; color:rgb(0, 0, 0);"></div>
+    <div id="clock"></div><!-- 時鐘顯示區域 -->
 
     <div style="text-align: center;">
 
-        <select id="yearSelect" style="font-size: 20px; margin: 10px; width: 100px;">
+        <select id="yearSelect">
             <option value="">選擇年份</option>
             <script>
                 for (let year = 1990; year <= 2050; year++) {
@@ -25,7 +28,7 @@
                 }
             </script>
         </select>
-        <select id="monthSelect" style="font-size: 20px; margin: 10px; width: 100px;">
+        <select id="monthSelect">
             <option value="">選擇月份</option>
             <script>
                 for (let month = 1; month <= 12; month++) {
@@ -33,19 +36,19 @@
                 }
             </script>
         </select>
-        <button onclick="B1()" style="font-size: 20px; margin: 10px;">生成日曆</button>
+        <button onclick="B1()">生成日曆</button>
     </div>
 
     <table id="customCalendar" style="margin: 0 auto; border-collapse: collapse;">
         <tbody id="customCalendarBody">
              <tr>
-                <th style="border: 1px solid black; padding: 20px;">日</th>
-                <th style="border: 1px solid black; padding: 20px;">一</th>
-                <th style="border: 1px solid black; padding: 20px;">二</th>
-                <th style="border: 1px solid black; padding: 20px;">三</th>
-                <th style="border: 1px solid black; padding: 20px;">四</th>
-                <th style="border: 1px solid black; padding: 20px;">五</th>
-                <th style="border: 1px solid black; padding: 20px;">六</th>
+                <th>日</th>
+                <th>一</th>
+                <th>二</th>
+                <th>三</th>
+                <th>四</th>
+                <th>五</th>
+                <th>六</th>
              </tr>
         </tbody>
     </table>
@@ -80,7 +83,6 @@
         }
     </script>
 
-    <div id="calendar" style="text-align: center; color:rgb(0, 0, 0);"></div>
     <script>
         
         function updateClock() {
@@ -91,22 +93,6 @@
         setInterval(updateClock, 1000);
         updateClock();
     </script>
+    
 </body>
 </html>
-<!--  註解樣式範例
-    <a href="網址">
-        <img src="圖片路徑" alt="替代文字" style="display: block; margin: 0 auto;">
-    </a>
-
-    <img src="圖片路徑" alt="替代文字" style="display: block; margin: 0 auto;">
-
-    <h1 style="text-align: center; color:顏色值; font-size:字體大小px;">
-        標題文字
-    </h1>
-
-    <p style="text-align: center; font-family:字體名稱; font-size:字體大小px; color:顏色值; background-color:背景顏色值;">
-        內文文字
-    </p>
-
-    <mark style="color:rgb(255, 0, 0); font-size: 50px;">標記文字</mark>
--->

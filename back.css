@@ -1,0 +1,39 @@
+
+body {
+    background-image: url('min.jpg');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-attachment: fixed;
+}
+h1{
+    text-align: center; 
+    color:rgb(0, 0, 0); 
+    font-size: 40px;
+}
+p{
+    text-align: center; 
+    font-family:Verdana; 
+    font-size:30px; 
+    color:rgb(0, 0, 0); 
+    background-color:rgb(255, 255, 255);
+}
+th{
+    font-size: larger;
+    border: 1px solid rgb(0, 0, 0); 
+    padding: 20px;
+    color: rgb(0, 0, 0);
+}
+.clock{
+    text-align: center; 
+    font-size: 30px; 
+    color:rgb(0, 0, 0);
+}
+.yearSelect, .monthSelect {
+    font-size: 20px; 
+    margin: 10px; 
+    width: 100px;
+}
+button {
+    font-size: 20px;
+    margin: 10px;
+}
