@@ -23,12 +23,12 @@ th{
     padding: 20px;
     color: rgb(0, 0, 0);
 }
-.clock{
+#clock{
     text-align: center; 
     font-size: 30px; 
     color:rgb(0, 0, 0);
 }
-.yearSelect, .monthSelect {
+#yearSelect, #monthSelect {
     font-size: 20px; 
     margin: 10px; 
     width: 100px;
